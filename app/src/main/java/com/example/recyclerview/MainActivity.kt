@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         val recyclerV = findViewById<RecyclerView>(R.id.listContacts)
+        val adapter = ContactListAdapter()
+        recyclerV.adapter = adapter
+        recyclerV.layoutManager = LinearLayoutManager(this).apply {
+            orientation = LinearLayoutManager.VERTICAL // vertical is default
+        }
+        adapter.submitList(contacts)
 
 
 
@@ -28,13 +35,14 @@ class MainActivity : AppCompatActivity() {
 
 private val contacts = listOf(
     Contact("Maria", "999 999 999", R.drawable.sample1),
-        Contact("Julia", "999 999 999", R.drawable.sample2),
+    Contact("Julia", "999 999 999", R.drawable.sample2),
     Contact("Miguel", "999 999 999", R.drawable.sample3),
     Contact("Maria", "999 999 999", R.drawable.sample4),
     Contact("Marta", "999 999 999", R.drawable.sample5),
     Contact("Andreia", "999 999 999", R.drawable.sample6),
     Contact("Carlos", "999 999 999", R.drawable.sample7),
     Contact("Maria", "999 999 999", R.drawable.sample8),
+    Contact("Ricardo", "999 999 999", R.drawable.sample9),
     Contact("Ricardo", "999 999 999", R.drawable.sample9),
     Contact("Andre", "999 999 999", R.drawable.sample10),
     Contact("Mario", "999 999 999", R.drawable.sample11),
