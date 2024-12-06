@@ -1,6 +1,8 @@
 package com.example.recyclerview
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -43,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
             }      }
 
+        adapter.setOnClickListener { contact ->
+            val explicitIntent = Intent(this, ContactDetailsActivity::class.java)
+            explicitIntent.putExtra("contact", contact.toString())
+            startActivity(explicitIntent)
+        }
     }
 
 
