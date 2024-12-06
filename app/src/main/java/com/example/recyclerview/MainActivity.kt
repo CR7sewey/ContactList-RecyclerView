@@ -47,7 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         adapter.setOnClickListener { contact ->
             val explicitIntent = Intent(this, ContactDetailsActivity::class.java)
-            explicitIntent.putExtra("contact", contact.toString())
+            explicitIntent.apply {
+                putExtra("name", contact.name)
+                putExtra("contact", contact.contact)
+                putExtra("icon", contact.icon)
+            }
             startActivity(explicitIntent)
         }
     }
