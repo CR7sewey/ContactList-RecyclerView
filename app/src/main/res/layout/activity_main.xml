@@ -7,14 +7,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/contactsTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/contacts"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/list"
+        android:layout_margin="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/contactsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/contactsTitle"
+        android:src="@drawable/grid"
+        android:layout_marginEnd="20dp"
+        />
+
+
+    <ImageView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/contactsTitle"
+        app:layout_constraintEnd_toStartOf="@+id/grid"
+        app:layout_constraintBottom_toBottomOf="@id/contactsTitle"
+        android:src="@drawable/list"
+        android:layout_marginEnd="5dp"
+
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listContacts"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         tools:listitem="@layout/item_list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/contactsTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
